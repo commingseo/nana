@@ -1,2 +1,2 @@
-web: gunicorn secondproject.wsgi --log-file -
+web: gunicorn halftone_project.wsgi --log-file -
 
