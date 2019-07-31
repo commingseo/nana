@@ -1,0 +1,50 @@
+<!--회원가입 페이지-->
+{% load static %}
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <title>Sign up</title>
+    </head>
+
+    <body>
+            <section id="banner" data-video="images/banner">
+                <div class="inner">
+                    <header>
+                        {% block content %}
+                        {% if error %}
+                        {{ error }}
+                        <br>
+                        <br>
+                        {% endif %}
+                        <h1>Sign Up</h1>
+                            <form method="POST" action="{% url 'join'%}">
+                                {% csrf_token %}
+                                UserName:
+                                <br>
+                                <input name="username"  type="text" value="">
+                                <br>
+                                Password:
+                                <br>
+                                <input name="password1"  type="password" value="">
+                                <br>
+                                Confirm Password:
+                                <br>
+                                <input name="password2"  type="password" value="">
+                                <br>
+                                <br>
+                                <input class="btn btn-primary" type="submit" value="Sign Up!">
+                            </form>
+                        {% endblock %}
+                    </header>
+                </div>
+            </section>
+    </body>
+</html>

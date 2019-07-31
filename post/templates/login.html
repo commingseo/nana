@@ -1,0 +1,48 @@
+<!--로그인 페이지-->
+{% load static %}
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />
+        <title>Login</title>
+    </head>
+
+    <body>
+            <section id="banner" data-video="images/banner">
+                <div class="inner">
+                    <header>
+                        {% block content %}
+                        {% if error %}
+                        {{ error }}
+                        <br>
+                        <br>                       
+                        {% endif %}
+                        
+                        <h1>Login</h1>
+                        
+                        <form method="POST" action="{% url 'login'%}">
+                            {% csrf_token %}
+                            Username:
+                            <br>
+                            <input name="username" type="text" value="">
+                            <br>
+                            Password:
+                            <br>
+                            <input name="password" type="password" value="">
+                            <br>
+                            <br>
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </form>
+                        {% endblock %}
+                    </header>
+                </div>
+            </section>
+    </body>
+</html>

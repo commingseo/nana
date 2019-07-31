@@ -1,0 +1,28 @@
+{% load static %}
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../static/assets/css/main.css" />        
+        <link rel="stylesheet" href="../static/img/3" />
+        <title>Dinner</title>
+	</head>
+    
+    <body>
+        <section id="banner" data-video="images/banner">
+            <div class="inner">
+                <header>
+                    <h3>오늘의 저녁은??</h3>
+                    <br>
+                    <p>
+                    <img src={{url}} width = "500" height = "300">
+                    <br>
+                    <p>오늘의 저녁은 
+                    <span style = "color : #ab8136; font-weight : bold">{{dinner}}</span> !!!!!!
+                    </p>
+                    </p>
+                </header>
+            </div>
+        </section>
+    </body>
+</html>

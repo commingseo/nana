@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+{% load static %}
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>골라조</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+	</head>
+	<body id="top">
+
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->   
+                
+            <div id = "top_bar">
+                <!--로그인 성공 시 레이블을 logout으로 변경-->
+                {% if user.is_authenticated %}
+                <p>
+                <span style = "color : #ab8136">{{user.username}}</span> 님
+                </p>
+                <a href="javascript:{document.getElementById('logout').submit()}"><p>Logout</p></a>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %} <input type="hidden" />
+                </form>
+                
+                {% else %}
+                    <a href = "{% url 'login' %}"><p>Login</p></a>
+                    <a href = "{% url 'join' %}"><p>Join</p></a>                    
+                {% endif %} 
+            </div>
+                
+        		<section class="yss" id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>오늘 뭐 먹지...?</h1>
+							<p>결정장애들을 위한 음식 추천 플랫폼<br/>
+                        </header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+				</section>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Boxes -->
+						<div class="thumbnails">
+
+							<div class="box">
+								<div class="inner">
+									<h3>아침</h3>
+									<a href="{%url 'breakfast'%}" class="button fit">선택</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="inner">
+									<h3>점심</h3>
+									<a href="{%url 'lunch'%}" class="button style2 fit">선택</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="inner">
+									<h3>저녁</h3>
+									<a href="{%url 'dinner'%}" class="button style3 fit">선택</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<div class="inner">
+									<h3>야식</h3>
+									<a href="{%url 'midnightsnack'%}" class="button style2 fit">선택</a>
+								</div>
+							</div>
+
+							<div class="box">							
+								<div class="inner">
+									<h3>사다리 타기</h3>
+									<a href="{%url 'ladder'%}" class="button style3 fit">선택</a>
+								</div>
+							</div>
+
+							<div class="box">					
+								<div class="inner">
+									<h3>룰렛 돌리기</h3>
+									<a href="{%url 'roulette' %}" class="button style3 fit" data-poptrox="youtube,800x400">선택</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>. Videos: <a href="http://coverr.co/">Coverr</a>.</p>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
